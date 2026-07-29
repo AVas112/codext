@@ -343,9 +343,11 @@ impl ChatWidget {
 
     pub(super) fn on_server_overloaded_error(&mut self, message: String) {
         self.input_queue.submit_pending_steers_after_interrupt = false;
-        self.pending_server_overloaded_resume_turn = Some(UserMessage::from(
-            DEFAULT_SERVER_OVERLOADED_RESUME_PROMPT,
-        ));
+        if self.config.tui_server_overloaded_resume_enabled {
+            self.pending_server_overloaded_resume_turn = Some(UserMessage::from(
+                DEFAULT_SERVER_OVERLOADED_RESUME_PROMPT,
+            ));
+        }
         self.finalize_turn();
 
         let message = if message.trim().is_empty() {
