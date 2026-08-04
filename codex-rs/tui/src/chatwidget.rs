@@ -775,6 +775,8 @@ pub(crate) struct ChatWidget {
     pending_auth_reload_attempt: Option<u8>,
     pending_usage_limit_resume_turn: Option<UserMessage>,
     pending_server_overloaded_resume_turn: Option<UserMessage>,
+    server_overloaded_resume_attempts: u8,
+    server_overloaded_resume_generation: u64,
     usage_limit_resume_waiting_for_auth_reload: bool,
 }
 
