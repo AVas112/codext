@@ -10,11 +10,11 @@ const LEGACY_SAFETY_ACCESS_BLOCK_PREFIX: &str =
 const BIO_POLICY_SAFETY_ACCESS_BLOCK_PREFIX: &str =
     "This content was flagged for possible biological risk.";
 const SERVER_OVERLOADED_RESUME_DELAYS: [Duration; 5] = [
+    Duration::from_secs(15),
     Duration::from_secs(30),
     Duration::from_secs(60),
     Duration::from_secs(120),
     Duration::from_secs(240),
-    Duration::from_secs(480),
 ];
 
 fn is_safety_access_block_message(message: &str) -> bool {
