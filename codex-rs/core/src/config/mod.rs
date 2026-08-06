@@ -812,7 +812,7 @@ pub struct Config {
     pub tui_usage_limit_resume_prompt: Option<String>,
 
     /// Whether to automatically submit `Continue` after a turn fails with `ServerOverloaded`.
-    pub tui_server_overloaded_resume_enabled: bool,
+    pub tui_server_overloaded_resume: bool,
 
     /// The absolute directory that should be treated as the current working
     /// directory for the session. All relative paths inside the business-logic
@@ -4230,10 +4230,10 @@ impl Config {
                 .tui
                 .as_ref()
                 .and_then(|t| t.usage_limit_resume_prompt.clone()),
-            tui_server_overloaded_resume_enabled: cfg
+            tui_server_overloaded_resume: cfg
                 .tui
                 .as_ref()
-                .map(|t| t.server_overloaded_resume_enabled)
+                .map(|t| t.server_overloaded_resume)
                 .unwrap_or(true),
             otel,
         };

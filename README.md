@@ -93,7 +93,7 @@ When the selected model is overloaded, Codext automatically submits `Continue` w
 
 ```toml
 [tui]
-server_overloaded_resume_enabled = false   # disable
+server_overloaded_resume = false   # default true; set false to disable
 ```
 
 ## Project Goals

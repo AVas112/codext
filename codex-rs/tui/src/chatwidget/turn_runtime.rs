@@ -356,7 +356,7 @@ impl ChatWidget {
 
     pub(super) fn on_server_overloaded_error(&mut self, message: String) {
         self.input_queue.submit_pending_steers_after_interrupt = false;
-        if self.config.tui_server_overloaded_resume_enabled {
+        if self.config.tui_server_overloaded_resume {
             let next_attempt = self.server_overloaded_resume_attempts.saturating_add(1);
             if let Some(retry_delay) = SERVER_OVERLOADED_RESUME_DELAYS
                 .get(usize::from(next_attempt.saturating_sub(1)))

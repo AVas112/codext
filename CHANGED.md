@@ -51,7 +51,7 @@ Implementation must follow the status-header skill .agents/skills/status-header/
 - When a turn fails with `ServerOverloaded`, the TUI automatically submits a `Continue` user turn so work resumes without manual intervention.
 - Auto-resume is bounded: exponential backoff of 15s → 30s → 60s → 120s → 240s between attempts, stopping after 5 consecutive failures and leaving the error on screen for the user.
 - The retry counter resets after any successfully completed turn; stale retry timers are discarded via a generation guard, so user intervention never triggers a late auto-Continue.
-- Controlled by `[tui].server_overloaded_resume_enabled` (default `true`; set to `false` to disable).
+- Controlled by `[tui].server_overloaded_resume` (default `true`; set to `false` to disable).
 - While auto-retries are pending, queued follow-up messages are held instead of being submitted into failing turns.
 
 ## App-server auth.json account switching
